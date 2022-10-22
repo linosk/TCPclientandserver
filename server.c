@@ -26,7 +26,12 @@ void server()
     int Listen_check = listen(Server_socket,Number_of_connections);
     assert(Listen_check!=-1);
 
-    int Client_socket;
+    system("clear");
+    printf("Listening...\n");
+
+    //check why there is NULL, NULL
+    int Client_socket = accept(Server_socket, NULL,NULL);
+    assert(Client_socket!=-1);
 }
 
 uint16_t get_port_number()
