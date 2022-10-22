@@ -18,4 +18,4 @@ $(OUTPUT): $(OFILES)
 
 .PHONY: clean
 clean:
-	rm *.o
+	rm *.o TCPserverandclient
