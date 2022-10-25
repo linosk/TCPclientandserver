@@ -2,8 +2,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -pedantic
 DEBUGFILE = -g
 
-CFILES = main.c security.c server.c
-OFILES = main.o security.o server.o
+CFILES = main.c security.c server.c client.c
+OFILES = main.o security.o server.o client.o
 
 OUTPUT = TCPserverandclient
 
