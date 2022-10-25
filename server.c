@@ -13,25 +13,37 @@ void server()
     Server_address.sin_port = htons(Port_number);
 
     Server_address.sin_addr.s_addr = INADDR_ANY;
+    //char *Ip_address = "192.168.0.250";
+    //int Address_check = inet_aton(Ip_address,&Server_address.sin_addr);
+
+    //assert(Address_check!=0);
+
+    //inet_pton(AF_INET,"192.168.0.250",&Server_address.sin_addr);
+
+    //192.168.0.250
+
+    char buffer[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET,&Server_address.sin_addr.s_addr,buffer,sizeof(buffer));
+    printf("%s\n",buffer);
 
     int Bind_check = bind(Server_socket,(const struct sockaddr*)&Server_address,sizeof(Server_address));
     assert(Bind_check!=-1);
-
-    //char* buffer[1024];
-    //inet_ntop(AF_INET,&Server_address.sin_addr,buffer,sizeof(buffer));
-    //printf("%s\n",buffer);
-
+    
     int Number_of_connections = get_number_of_connections();
-
+    
     int Listen_check = listen(Server_socket,Number_of_connections);
     assert(Listen_check!=-1);
-
+    
     system("clear");
+    printf("%s\n",buffer);
     printf("Listening...\n");
 
     //check why there is NULL, NULL
+
     int Client_socket = accept(Server_socket, NULL,NULL);
     assert(Client_socket!=-1);
+
+    close(Server_socket);
 }
 
 uint16_t get_port_number()

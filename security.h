@@ -6,6 +6,7 @@
 #include <string.h>
 
 #include "server.h"
+#include "client.h"
 
 #define LENGTH_CORRECT 6
 #define REQUIRED_INPUTS 2

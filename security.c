@@ -34,6 +34,6 @@ void check(int Number_of_inputs, char** Inputs)
     }
     else
     {
-        //client();
+        client();
     }
 }
