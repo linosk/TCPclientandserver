@@ -12,8 +12,20 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include <string.h>
+
 #include <arpa/inet.h>
 
+struct sockaddr_in Address_check;
+
+char Chosen_ip4_address[INET_ADDRSTRLEN];
+
 void client();
+
+uint16_t get_port_number_client();
+
+void get_ip4_address();
+
+void handle_communication_client(int Socket);
 
 #endif
