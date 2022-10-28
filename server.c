@@ -2,28 +2,28 @@
 
 void server()
 {
-    int Server_socket = socket(AF_INET,SOCK_STREAM,0);
-    assert(Server_socket!=-1);
+    int Server_socket_first = socket(AF_INET,SOCK_STREAM,0);
+    assert(Server_socket_first!=-1);
 
-    struct sockaddr_in Server_address;
-    Server_address.sin_family = AF_INET;
+    struct sockaddr_in Server_address_first;
+    Server_address_first.sin_family = AF_INET;
 
     uint16_t Port_number;
     Port_number = get_port_number_server();
-    Server_address.sin_port = htons(Port_number);
+    Server_address_first.sin_port = htons(Port_number);
 
-    Server_address.sin_addr.s_addr = INADDR_ANY;
+    Server_address_first.sin_addr.s_addr = INADDR_ANY;
 
     char buffer[INET_ADDRSTRLEN];
-    inet_ntop(AF_INET,&Server_address.sin_addr.s_addr,buffer,sizeof(buffer));
+    inet_ntop(AF_INET,&Server_address_first.sin_addr.s_addr,buffer,sizeof(buffer));
     printf("%s\n",buffer);
 
-    int Bind_check = bind(Server_socket,(const struct sockaddr*)&Server_address,sizeof(Server_address));
+    int Bind_check = bind(Server_socket_first,(const struct sockaddr*)&Server_address_first,sizeof(Server_address_first));
     assert(Bind_check!=-1);
     
     int Number_of_connections = get_number_of_connections();
     
-    int Listen_check = listen(Server_socket,Number_of_connections);
+    int Listen_check = listen(Server_socket_first,Number_of_connections);
     assert(Listen_check!=-1);
     
     system("clear");
@@ -32,14 +32,14 @@ void server()
 
     //check why there is NULL, NULL
 
-    int Client_socket = accept(Server_socket, NULL,NULL);
+    int Client_socket = accept(Server_socket_first, NULL,NULL);
     assert(Client_socket!=-1);
 
     handle_communication_server(Client_socket);
 
     printf("End of communication.\n");
 
-    close(Server_socket);
+    close(Server_socket_first);
 }
 
 uint16_t get_port_number_server()
