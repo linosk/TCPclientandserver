@@ -24,4 +24,6 @@ int get_number_of_connections();
 
 void handle_communication_server(int Socket);
 
+void handle_communication_between_clients(int Socket_first, int Socket_second);
+
 #endif
