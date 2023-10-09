@@ -6,3 +6,6 @@ Learning about socket programming.
 
 # Build
 - make
+
+# Run
+./TCPserverandclient
