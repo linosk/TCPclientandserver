@@ -1,9 +1,8 @@
 # TCPclientandserver
-TCP client and server in C
+TCP client and server in C.
 
 # Goal
-Learning about socket programming
+Learning about socket programming.
 
 # Build
-Run:
-make
+- make
